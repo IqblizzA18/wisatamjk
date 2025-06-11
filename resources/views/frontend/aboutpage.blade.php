@@ -3,9 +3,11 @@
 @section('content')
     <div class="hero overlay">
 
-        <div class="img-bg rellax">
-            <img src="{{ asset('FE_wisata/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-        </div>
+        @foreach ($backgrounds as $background)
+            <div class="img-bg rellax">
+                <img src="{{ Storage::url($background->background_image) }}" alt="Image" class="img-fluid">
+            </div>
+        @endforeach
 
         <div class="container">
             <div class="row align-items-center justify-content-start">
@@ -52,8 +54,8 @@
 
                 <!-- Kolom Kanan -->
                 <div class="col-lg-5 mb-5 mb-lg-0">
-                    <img src="{{ asset('FE_wisata/images/about_1.jpg') }}" alt="Tentang VisitMojokerto"
-                        class="img-fluid rounded" data-aos="fade-left" data-aos-delay="200">
+                    <img src="{{ asset('images/about_1.jpg') }}" alt="Tentang VisitMojokerto" class="img-fluid rounded"
+                        data-aos="fade-left" data-aos-delay="200">
                 </div>
             </div>
 
@@ -127,7 +129,7 @@
                         <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-1">
                                 <span class="icon">
-                                    <img src="{{ asset('FE_wisata/images/svg/06.svg') }}" alt="Image" class="img-fluid">
+                                    <img src="{{ asset('images/svg/06.svg') }}" alt="Image" class="img-fluid">
                                 </span>
                                 <div>
                                     <h3>Rekomendasi Destinasi</h3>
@@ -139,7 +141,7 @@
                         <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-1">
                                 <span class="icon">
-                                    <img src="{{ asset('FE_wisata/images/svg/05.svg') }}" alt="Image" class="img-fluid">
+                                    <img src="{{ asset('images/svg/05.svg') }}" alt="Image" class="img-fluid">
                                 </span>
                                 <div>
                                     <h3>Dasar Referensi untuk Pengembangan Akademik</h3>
@@ -152,7 +154,7 @@
                         <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-1">
                                 <span class="icon">
-                                    <img src="{{ asset('FE_wisata/images/svg/09.svg') }}" alt="Image" class="img-fluid">
+                                    <img src="{{ asset('images/svg/09.svg') }}" alt="Image" class="img-fluid">
                                 </span>
                                 <div>
                                     <h3>Metode Collaborative Filtering</h3>

@@ -6,27 +6,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('images/LogoVisit.png') }}">
 
-    <meta name="description" content="" />
-    <meta name="keywords" content="bootstrap, bootstrap5" />
+    <meta name="description"
+        content="Portal wisata resmi Kota Mojokerto. Temukan tempat wisata, kuliner, dan budaya terbaik di sini.">
+
+    <meta name="keywords" content="wisata, Mojokerto, tempat wisata, liburan, budaya Mojokerto">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap"
         rel="stylesheet">
-    <!-- Di <head> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('fonts/icomoon/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/tiny-slider.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/aos.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <!-- Bootstrap 5 (gunakan versi yang sesuai) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="{{ asset('FE_wisata/fonts/icomoon/style.css') }}" />
-    <link rel="stylesheet" href="{{ asset('FE_wisata/fonts/flaticon/font/flaticon.css') }}" />
-
-    <link rel="stylesheet" href="{{ asset('FE_wisata/css/tiny-slider.css') }}" />
-    <link rel="stylesheet" href="{{ asset('FE_wisata/css/aos.css') }}" />
-    <link rel="stylesheet" href="{{ asset('FE_wisata/css/flatpickr.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('FE_wisata/css/glightbox.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('FE_wisata/css/style.css') }}" />
 
 
     <title>VisitMojokerto</title>
@@ -97,17 +95,6 @@
                         <p>Website ini hadir sebagai solusi untuk mempermudah wisatawan dalam
                             menemukan informasi wisata yang akurat, relevan, dan sesuai dengan kebutuhan mereka.</p>
                     </div> <!-- /.widget -->
-                    {{-- <div class="widget">
-                        <h3>Connect</h3>
-                        <ul class="list-unstyled social">
-                            <li><a href="#"><span class="icon-instagram"></span></a></li>
-                            <li><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                            <li><a href="#"><span class="icon-pinterest"></span></a></li>
-                            <li><a href="#"><span class="icon-dribbble"></span></a></li>
-                        </ul>
-                    </div> <!-- /.widget --> --}}
                 </div> <!-- /.col-lg-3 -->
 
                 <div class="col-lg-2 ml-auto">
@@ -121,20 +108,6 @@
                         </ul>
                     </div> <!-- /.widget -->
                 </div> <!-- /.col-lg-3 -->
-
-                {{-- <div class="col-lg-2">
-                    <div class="widget">
-                        <h3>Company</h3>
-                        <ul class="list-unstyled float-left links">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div> <!-- /.widget -->
-                </div> <!-- /.col-lg-3 --> --}}
-
 
                 <div class="col-lg-3">
                     <div class="widget">
@@ -164,15 +137,15 @@
 
             <div class="row mt-5">
                 <div class="col-12 text-center">
-                    <p class="mb-0">Copyright &copy;
+                    <p class="mb-0">
+                        &copy;
                         <script>
                             document.write(new Date().getFullYear());
-                        </script>. All Rights Reserved. &mdash; Designed with love by <a
-                            href="https://untree.co">Untree.co</a>
-                        <!-- License information: https://untree.co/license/ -->
+                        </script> VisitMojokerto. All rights reserved.
                     </p>
                 </div>
-            </div> <!-- /.container -->
+            </div>
+            <!-- /.container -->
         </div> <!-- /.site-footer -->
 
         <!-- Preloader -->
@@ -184,19 +157,19 @@
         </div>
 
 
-        <script src="{{ asset('FE_wisata/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/tiny-slider.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/aos.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/navbar.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/counter.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/rellax.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/flatpickr.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/glightbox.min.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/custom.js') }}"></script>
-        <script src="{{ asset('FE_wisata/js/sitenav.js') }}"></script>
+        {{-- <script src="{{ asset('FE_wisata/js/bootstrap.bundle.min.js') }}"></script> --}}
+        <script src="{{ asset('js/tiny-slider.js') }}"></script>
+        <script src="{{ asset('js/aos.js') }}"></script>
+        <script src="{{ asset('js/navbar.js') }}"></script>
+        {{-- <script src="{{ asset('FE_wisata/js/counter.js') }}"></script> --}}
+        <script src="{{ asset('js/rellax.js') }}"></script>
+        {{-- <script src="{{ asset('FE_wisata/js/flatpickr.js') }}"></script> --}}
+        {{-- <script src="{{ asset('FE_wisata/js/glightbox.min.js') }}"></script> --}}
+        <script src="{{ asset('js/custom.js') }}"></script>
+        <script src="{{ asset('js/sitenav.js') }}"></script>
         <!-- Sebelum </body> -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-        <script src="{{ asset('FE_wisata/js/heroswipper.js') }}"></script>
+        <script src="{{ asset('js/heroswipper.js') }}"></script>
 
 </body>
 

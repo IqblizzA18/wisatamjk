@@ -2,24 +2,25 @@
 
 @section('content')
     <div class="hero overlay">
-
-        <div class="img-bg rellax">
-            <img src="{{ asset('FE_wisata/images/hero_1.jpg') }}" alt="Image" class="img-fluid">
-        </div>
+        @foreach ($backgrounds as $background)
+            <div class="img-bg rellax">
+                <img src="{{ Storage::url($background->background_image) }}" alt="Image" class="img-fluid">
+            </div>
+        @endforeach
 
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-8">
-
                     <h1 class="heading text-center" data-aos="fade-up">Solusi Rekomendasi Wisata untuk Kota Mojokerto</h1>
-                    <p class="mb-5 text-center" data-aos="fade-up">Platform digital berbasis Collaborative Filtering untuk
-                        menyediakan
-                        rekomendasi destinasi wisata yang relevan, akurat, dan mendukung pengembangan sektor pariwisata
-                        lokal.</p>
+                    <p class="mb-5 text-center" data-aos="fade-up">
+                        Platform digital berbasis Collaborative Filtering untuk menyediakan rekomendasi destinasi wisata
+                        yang relevan, akurat, dan mendukung pengembangan sektor pariwisata lokal.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
 
 
     <div class="section section-2">
@@ -28,11 +29,11 @@
                 <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
                     <div class="image-stack mb-5 mb-lg-0">
                         <div class="image-stack__item image-stack__item--bottom" data-aos="fade-up">
-                            <img src="{{ asset('FE_wisata/images/img_v_1.jpg') }}" alt="Image" class="img-fluid rellax ">
+                            <img src="{{ asset('images/img_v_1.jpg') }}" alt="Image" class="img-fluid rellax ">
                         </div>
                         <div class="image-stack__item image-stack__item--top" data-aos="fade-up" data-aos-delay="100"
                             data-rellax-percentage="0.5">
-                            <img src="{{ asset('FE_wisata/images/img_v_2.jpg') }}" alt="Image" class="img-fluid">
+                            <img src="{{ asset('images/img_v_2.jpg') }}" alt="Image" class="img-fluid">
                         </div>
                     </div>
                 </div>
@@ -72,7 +73,7 @@
                         <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-1">
                                 <span class="icon">
-                                    <img src="{{ asset('FE_wisata/images/svg/06.svg') }}" alt="Image" class="img-fluid">
+                                    <img src="{{ asset('images/svg/06.svg') }}" alt="Image" class="img-fluid">
                                 </span>
                                 <div>
                                     <h3>Rekomendasi Destinasi</h3>
@@ -84,7 +85,7 @@
                         <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-1">
                                 <span class="icon">
-                                    <img src="{{ asset('FE_wisata/images/svg/05.svg') }}" alt="Image" class="img-fluid">
+                                    <img src="{{ asset('images/svg/05.svg') }}" alt="Image" class="img-fluid">
                                 </span>
                                 <div>
                                     <h3>Dasar Referensi untuk Pengembangan Akademik</h3>
@@ -97,7 +98,7 @@
                         <div class="col-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-1">
                                 <span class="icon">
-                                    <img src="{{ asset('FE_wisata/images/svg/09.svg') }}" alt="Image" class="img-fluid">
+                                    <img src="{{ asset('images/svg/09.svg') }}" alt="Image" class="img-fluid">
                                 </span>
                                 <div>
                                     <h3>Metode Collaborative Filtering</h3>
@@ -140,95 +141,23 @@
 
         <div class="destination-slider-wrap">
             <div class="destination-slider">
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-1.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$430</div>
+                @foreach ($recommendedWisatas as $wisata)
+                    <div class="destination">
+                        <div class="thumb">
+                            @if ($wisata->images->isNotEmpty())
+                                <img src="{{ Storage::url($wisata->images->first()->image_path) }}"
+                                    alt="{{ $wisata->title }}" class="img-fluid">
+                            @else
+                                <img src="{{ asset('images/default.jpg') }}" alt="No Image" class="img-fluid">
+                            @endif
+                        </div>
+                        <div class="mt-4">
+                            <h3><a href="{{ route('explore.show', $wisata->slug) }}">{{ $wisata->title }}</a></h3>
+                            <span
+                                class="meta">{{ \Illuminate\Support\Str::limit($wisata->short_description, 50) }}</span>
+                        </div>
                     </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-2.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$560</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-3.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$490</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-4.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$490</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-5.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$430</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-6.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$560</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-7.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$490</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
-                <div class="destination">
-                    <div class="thumb">
-                        <img src="{{ asset('FE_wisata/images/img-4.jpg') }}" alt="Image" class="img-fluid">
-                        <div class="price">$490</div>
-                    </div>
-                    <div class="mt-4">
-                        <h3><a href="#">Paradise Beach, Palawan Island</a></h3>
-                        <span class="meta">Maldives, Repbulic Maldives</span>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
 
@@ -238,7 +167,7 @@
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-lg-5 mb-4 mb-lg-0 order-lg-2" data-aos="fade-up">
-                    <img src="{{ asset('FE_wisata/images/img-1.jpg') }}" alt="Image" class="img-fluid">
+                    <img src="{{ asset('images/img-1.jpg') }}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
                     <h2 class="heading mb-4">Bagikan Pengalaman Wisatamu di Mojokerto</h2>
@@ -270,99 +199,20 @@
 
         <div class="wide-slider-testimonial-wrap">
             <div class="wide-slider-testimonial">
-                <div class="item">
-                    <blockquote class="block-testimonial">
-                        <div class="author">
-                            {{-- <img src="{{ asset('FE_wisata/images/person_1.jpg') }}" alt="Free template by TemplateUX"> --}}
-                            <h3>John Doe</h3>
-                            <p class="position mb-5">CEO, Founder</p>
-                        </div>
-                        <p>
-                        <div class="quote">&ldquo;</div>
-                        &ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                        Semantics, a large language ocean.&rdquo;</p>
-                    </blockquote>
-                </div>
-
-                <div class="item">
-                    <blockquote class="block-testimonial">
-                        <div class="author">
-                            {{-- <img src="{{ asset('FE_wisata/images/person_2.jpg') }}" alt="Free template by TemplateUX"> --}}
-                            <h3>James Woodland</h3>
-                            <p class="position mb-5">Designer at Facebook</p>
-                        </div>
-                        <p>
-                        <div class="quote">&ldquo;</div>
-                        &ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the
-                        skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her
-                        own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her
-                        way.&rdquo;</p>
-
-                    </blockquote>
-                </div>
-
-                <div class="item">
-                    <blockquote class="block-testimonial">
-                        <div class="author">
-                            {{-- <img src="{{ asset('FE_wisata/images/person_3.jpg') }}" alt="Free template by TemplateUX"> --}}
-                            <h3>Rob Smith</h3>
-                            <p class="position mb-5">Product Designer at Twitter</p>
-                        </div>
-                        <p>
-                        <div class="quote">&ldquo;</div>
-                        &ldquo;A small river named Duden flows by their place and supplies it with the necessary
-                        regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-                        mouth.&rdquo;</p>
-                    </blockquote>
-                </div>
-
-                <div class="item">
-                    <blockquote class="block-testimonial">
-                        <div class="author">
-                            {{-- <img src="{{ asset('FE_wisata/images/person_1.jpg') }}" alt="Free template by TemplateUX"> --}}
-                            <h3>John Doe</h3>
-                            <p class="position mb-5">CEO, Founder</p>
-                        </div>
-                        <p>
-                        <div class="quote">&ldquo;</div>
-                        &ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                        Semantics, a large language ocean.&rdquo;</p>
-                    </blockquote>
-                </div>
-
-                <div class="item">
-                    <blockquote class="block-testimonial">
-                        <div class="author">
-                            {{-- <img src="{{ asset('FE_wisata/images/person_2.jpg') }}" alt="Free template by TemplateUX"> --}}
-                            <h3>James Woodland</h3>
-                            <p class="position mb-5">Designer at Facebook</p>
-                        </div>
-                        <p>
-                        <div class="quote">&ldquo;</div>
-                        &ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the
-                        skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her
-                        own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her
-                        way.&rdquo;</p>
-
-                    </blockquote>
-                </div>
-
-                <div class="item">
-                    <blockquote class="block-testimonial">
-                        <div class="author">
-                            {{-- <img src="{{ asset('FE_wisata/images/person_3.jpg') }}" alt="Free template by TemplateUX"> --}}
-                            <h3>Rob Smith</h3>
-                            <p class="position mb-5">Product Designer at Twitter</p>
-                        </div>
-                        <p>
-                        <div class="quote">&ldquo;</div>
-                        &ldquo;A small river named Duden flows by their place and supplies it with the necessary
-                        regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-                        mouth.&rdquo;</p>
-                    </blockquote>
-                </div>
+                @foreach ($testimonials as $testimonial)
+                    <div class="item">
+                        <blockquote class="block-testimonial">
+                            <div class="author">
+                                {{-- <img src="{{ asset('FE_wisata/images/person_1.jpg') }}" alt="Free template by TemplateUX"> --}}
+                                <h3>{{ $testimonial->name }}</h3>
+                                <p class="position mb-5">{{ $testimonial->job_title }}</p>
+                            </div>
+                            <p>
+                            <div class="quote">&ldquo;</div>
+                            &ldquo;{{ $testimonial->message }}&rdquo;</p>
+                        </blockquote>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

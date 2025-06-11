@@ -5,17 +5,10 @@ use App\Http\Controllers\Frontend\HomepageController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ExploreController;
 use App\Http\Controllers\Frontend\FeedbackController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\Admin\BackgroundController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\WisataController;
+use App\Http\Controllers\Admin\JenisWisataController;
 
 Route::get('/',[\App\Http\Controllers\Frontend\HomepageController::class,'index'])->name('home');
 Route::get('/about',[\App\Http\Controllers\Frontend\AboutController::class,'index'])->name('about');
@@ -34,5 +27,18 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin', 'as' => 
     Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::resource('backgrounds', \App\Http\Controllers\Admin\BackgroundController::class)->except('show');
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class)->except('show');
+    Route::resource('jenis', \App\Http\Controllers\Admin\JenisWisataController::class)->except('show');
+    Route::resource('wisata', \App\Http\Controllers\Admin\WisataController::class)
+        ->parameters(['wisata' => 'wisata'])
+        ->except('show');
+
+     // Wisata Image routes nested under wisata
+    Route::prefix('wisata')->name('wisata.')->group(function() {
+        Route::get('{wisata}/images', [\App\Http\Controllers\Admin\WisataImageController::class, 'index'])->name('images.index');
+        Route::post('{wisata}/images', [\App\Http\Controllers\Admin\WisataImageController::class, 'store'])->name('images.store');
+        Route::delete('images/{image}', [\App\Http\Controllers\Admin\WisataImageController::class, 'destroy'])->name('images.destroy');
+    });
 });
 
