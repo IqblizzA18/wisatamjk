@@ -18,13 +18,8 @@ Route::get('/feedback',[\App\Http\Controllers\Frontend\FeedbackController::class
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
-    Route::resource('permissions', \App\Http\Controllers\Admin\PermissionController::class);
-    Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
-    Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::resource('backgrounds', \App\Http\Controllers\Admin\BackgroundController::class)->except('show');

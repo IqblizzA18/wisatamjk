@@ -11,9 +11,10 @@
             <div class="row align-items-center justify-content-start">
                 <div class="col-lg-5">
                     <h1 class="heading" data-aos="fade-up">Saran & Masukan</h1>
-                    <p class="mb-5" data-aos="fade-up">VisitMojokerto hadir untuk memberikan pengalaman wisata yang lebih
-                        baik. Sampaikan saran dan masukan Anda untuk membantu kami meningkatkan layanan dan destinasi wisata
-                        di Kota Mojokerto.
+                    <p class="mb-5" data-aos="fade-up">
+                        VisitMojokerto hadir untuk memberikan pengalaman wisata yang lebih baik.
+                        Sampaikan saran dan masukan Anda untuk membantu kami meningkatkan layanan
+                        dan destinasi wisata di Kota Mojokerto.
                     </p>
                 </div>
             </div>
@@ -28,46 +29,45 @@
                 </div>
             </div>
             <div class="row">
-                <!-- Peta di sebelah kiri -->
+                <!-- Peta -->
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
                     <div class="media-entry">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31647.551320447532!2d112.41863126153487!3d-7.471445970909537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780e3c80e50d83%3A0x3027a76e352bd40!2sKota%20Mojokerto%2C%20Mergelo%2C%20Kota%20Mojokerto%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1746873166614!5m2!1sid!2sid"
-                            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31647.551320447532!2d112.41863126153487!3d-7.471445970909537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780e3c80e50d83%3A0x3027a76e352bd40!2sKota%20Mojokerto!5e0!3m2!1sid!2sid!4v1746873166614!5m2!1sid!2sid"
+                            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
                         </iframe>
                     </div>
                 </div>
 
-                <!-- Formulir Masukan di sebelah kanan -->
+                <!-- Formulir -->
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <form action="#" method="POST" class="mb-5">
+                    <form id="feedbackForm" class="mb-5">
                         <div class="row g-3">
-                            <!-- Input Nama -->
+                            <!-- Nama -->
                             <div class="col-12 mb-3">
-                                <input type="text" class="form-control" placeholder="Nama Anda" required>
+                                <input type="text" name="nama" class="form-control" placeholder="Nama Anda" required>
                             </div>
 
-                            <!-- Input Email -->
+                            <!-- Asal Kota -->
                             <div class="col-12 mb-3">
-                                <input type="email" class="form-control" placeholder="Email Anda" required>
+                                <input type="text" name="kota" class="form-control" placeholder="Asal Kota" required>
                             </div>
 
-                            <!-- Input Subjek -->
+                            <!-- Pesan -->
                             <div class="col-12 mb-3">
-                                <input type="text" class="form-control" placeholder="Subjek" required>
+                                <textarea name="pesan" class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
                             </div>
 
-                            <!-- Input Pesan -->
-                            <div class="col-12 mb-3">
-                                <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Pesan Anda" required></textarea>
+                            <!-- Tombol -->
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
                             </div>
 
-                            <!-- Tombol Kirim -->
-                            <div class="col-12 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary shadow-sm rounded-3">
-                                    Kirim
-                                </button>
+                            <!-- Notifikasi -->
+                            <div class="col-12 mt-3">
+                                <div id="statusMessage" class="text-success" style="display: none;">
+                                    ✅ Pesan berhasil dikirim!
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -75,159 +75,29 @@
             </div>
         </div>
     </div>
-    <div class="section bg-light">
-        <h2 class="heading mb-5 text-center">Testimoni pengguna</h2>
 
-        <div class="text-center mb-5">
-            <div id="prevnext-testimonial">
-                <span class="prev me-3" data-controls="prev">
-                    <span class="icon-chevron-left"></span>
+    {{-- Tambahkan JavaScript agar tidak buka tab baru --}}
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-                </span>
-                <span class="next" data-controls="next">
-                    <span class="icon-chevron-right"></span>
+            const form = e.target;
+            const data = new FormData(form);
+            const url =
+                "https://script.google.com/macros/s/AKfycbzOK1DGK8khl_o4xCKYvaXQyhWO_IRpNVpyceY1apuzYLkxEG7b3WTyhEZZI6bHLs8/exec";
 
-                </span>
-            </div>
-        </div>
+            try {
+                await fetch(url, {
+                    method: 'POST',
+                    body: data,
+                    mode: 'no-cors'
+                });
 
-        <div class="wide-slider-testimonial-wrap">
-            <div class="wide-slider-testimonial">
-                @foreach ($testimonials as $testimonial)
-                    <div class="item">
-                        <blockquote class="block-testimonial">
-                            <div class="author">
-                                {{-- <img src="{{ asset('FE_wisata/images/person_1.jpg') }}" alt="Free template by TemplateUX"> --}}
-                                <h3>{{ $testimonial->name }}</h3>
-                                <p class="position mb-5">{{ $testimonial->job_title }}</p>
-                            </div>
-                            <p>
-                            <div class="quote">&ldquo;</div>
-                            &ldquo;{{ $testimonial->message }}&rdquo;</p>
-                        </blockquote>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <div class="section">
-        <div class="container">
-            <div class="row justify-content-between align-items-stretch">
-                <!-- align-items-stretch untuk menyamakan tinggi kolom -->
-                <div class="heading-content text-center mb-4" data-aos="fade-up">
-                    <h2 class="heading">Pertanyaan yang Sering Diajukan</h2>
-                    <p>Temukan jawabannya dengan mudah, dan jika Anda membutuhkan informasi lebih lanjut, tim kami selalu
-                        siap membantu Anda kapan saja!</p>
-                </div>
-
-                <!-- Left Accordion -->
-                <!-- Accordion Kiri -->
-                <div class="col-lg-6 mb-lg-0">
-                    <div class="custom-accordion" id="accordion_1">
-                        <div class="accordion-item">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Kenapa Harus ke Mojokerto?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordion_1">
-                                <div class="accordion-body">
-                                    Mojokerto bukan hanya kota sejarah—ia adalah pintu gerbang ke kejayaan Majapahit. Setiap
-                                    sudutnya menawarkan pengalaman autentik dan memikat.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Bingung Mulai dari Mana?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordion_1">
-                                <div class="accordion-body">
-                                    Tenang, kamu bisa mulai dari situs Majapahit, lalu lanjut ke air terjun, dan akhiri
-                                    dengan kuliner khas Mojokerto. Kami bantu rancang rutenya.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Rekomendasi Sesuai Selera
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordion_1">
-                                <div class="accordion-body">
-                                    Sistem pintar kami menyarankan destinasi berdasarkan minatmu. Alam? Sejarah? Kuliner?
-                                    Semua bisa kamu sesuaikan sendiri.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Accordion -->
-                <!-- Accordion Kanan -->
-                <div class="col-lg-6 mt-lg-0">
-                    <div class="custom-accordion" id="accordion_2">
-                        <div class="accordion-item">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                    Butuh Teman Jelajah?
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="collapse show" aria-labelledby="headingFour"
-                                data-bs-parent="#accordion_2">
-                                <div class="accordion-body">
-                                    Nikmati pengalaman liburan bareng komunitas lokal atau traveler lain yang punya minat
-                                    sama. Seru dan lebih hemat!
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Siap Liburan? Yuk Mulai!
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordion_2">
-                                <div class="accordion-body">
-                                    Cukup pilih tanggal dan minatmu, kami bantu atur semuanya. Petualanganmu di Mojokerto
-                                    tinggal satu klik lagi!
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                    Promo & Diskon Spesial
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordion_2">
-                                <div class="accordion-body">
-                                    Dapatkan penawaran menarik untuk paket wisata Mojokerto. Terbatas hanya untuk pendaftar
-                                    awal—buruan daftar!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                form.reset();
+                document.getElementById('statusMessage').style.display = 'block';
+            } catch (error) {
+                alert("Terjadi kesalahan. Silakan coba lagi.");
+            }
+        });
+    </script>
 @endsection

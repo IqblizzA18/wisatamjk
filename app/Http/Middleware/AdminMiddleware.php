@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Middleware;
 
 use Closure;
@@ -8,20 +7,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check()) {
-            return redirect('/');
+        if (!auth()->check() || !auth()->user()->is_admin) {
+            return redirect('/'); // user biasa ditolak
         }
-        if (auth()->user()->roles()->where('title', 'user')->count() > 0) {
-            return redirect('/');
-        }
-        
+
         return $next($request);
     }
 }
+

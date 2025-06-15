@@ -205,7 +205,7 @@
                             <div class="author">
                                 {{-- <img src="{{ asset('FE_wisata/images/person_1.jpg') }}" alt="Free template by TemplateUX"> --}}
                                 <h3>{{ $testimonial->name }}</h3>
-                                <p class="position mb-5">{{ $testimonial->job_title }}</p>
+                                <p class="position mb-5">{{ $testimonial->city }}</p>
                             </div>
                             <p>
                             <div class="quote">&ldquo;</div>

@@ -5,7 +5,7 @@
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-            @can('user_management_access')
+            {{-- @can('user_management_access')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cogs nav-icon"></i>
@@ -28,7 +28,7 @@
                         </li>
                     </ul>
                 </li>
-            @endcan
+            @endcan --}}
 
             <li class="nav-item">
                 <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
@@ -40,29 +40,28 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('admin.backgrounds.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-book"></i>
-                    <p>
-                        {{ __('Background') }}
-                    </p>
+                    <i class="nav-icon fas fa-image"></i>
+                    <p>{{ __('Background') }}</p>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('admin.testimonials.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-book"></i>
-                    <p>
-                        {{ __('Testimoni') }}
-                    </p>
+                    <i class="nav-icon fas fa-comment-alt"></i>
+                    <p>{{ __('Testimoni') }}</p>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('admin.jenis.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-list"></i>
+                    <i class="nav-icon fas fa-th-list"></i>
                     <p>{{ __('Jenis Wisata') }}</p>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('admin.wisata.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-map-marker"></i>
+                    <i class="nav-icon fas fa-map-marked-alt"></i>
                     <p>{{ __('Wisata') }}</p>
                 </a>
             </li>

@@ -20,7 +20,7 @@
                         <tr>
                             <th style="width: 50px;">#</th>
                             <th>Nama</th>
-                            <th>Pekerjaan</th>
+                            <th>Asal Kota</th>
                             <th>Pesan</th>
                             <th style="width: 140px;">Aksi</th>
                         </tr>
@@ -30,7 +30,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $testimonial->name }}</td>
-                                <td>{{ $testimonial->job_title }}</td>
+                                <td>{{ $testimonial->city }}</td>
                                 <td class="text-muted small">{{ Str::limit($testimonial->message, 80) }}</td>
                                 <td>
                                     <a href="{{ route('admin.testimonials.edit', $testimonial->id) }}"

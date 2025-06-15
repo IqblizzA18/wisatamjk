@@ -23,9 +23,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="job_title" class="form-label">Pekerjaan</label>
-                        <input type="text" name="job_title" id="job_title" class="form-control shadow-sm"
-                            value="{{ old('job_title', $testimonial->job_title) }}" required>
+                        <label for="city" class="form-label">Pekerjaan</label>
+                        <input type="text" name="city" id="city" class="form-control shadow-sm"
+                            value="{{ old('city', $testimonial->city) }}" required>
                     </div>
 
                     <div class="mb-3">
