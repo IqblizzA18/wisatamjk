@@ -8,7 +8,6 @@ use App\Models\Wisata;
 use App\Models\Background;
 use App\Models\JenisWisata;
 
-
 class ExploreController extends Controller
 {
     public function index(Request $request)
@@ -16,62 +15,60 @@ class ExploreController extends Controller
         $backgrounds = Background::all();
         $jenisWisatas = JenisWisata::all();
 
+        // Ambil semua data wisata
         $query = Wisata::with(['jenisWisata', 'images']);
 
-        // Filter judul
+        // Filter judul wisata (search)
         if ($request->filled('judul')) {
             $query->where('title', 'like', '%' . $request->judul . '%');
         }
 
-        // Filter jenis wisata
+        // Filter jenis wisata (berdasarkan nama jenis wisata)
         if ($request->filled('jenis')) {
             $query->whereHas('jenisWisata', function ($q) use ($request) {
                 $q->whereIn('name', $request->jenis);
             });
         }
 
-        // Filter rating
+        // Filter berdasarkan rating (range 1–5)
         if ($request->filled('rating')) {
-    $query->where(function ($q) use ($request) {
-        foreach ($request->rating as $rate) {
-            $min = (float) $rate;
-            $max = $min + 1;
-            $q->orWhere(function ($subQuery) use ($min, $max) {
-                $subQuery->where('rating', '>=', $min)
-                         ->where('rating', '<', $max);
+            $query->where(function ($q) use ($request) {
+                foreach ($request->rating as $rate) {
+                    $min = (float) $rate;
+                    $max = $min + 1;
+                    $q->orWhere(function ($sub) use ($min, $max) {
+                        $sub->where('rating', '>=', $min)
+                            ->where('rating', '<', $max);
+                    });
+                }
             });
         }
-    });
-}
 
-// Sort atau Filter Khusus
-if ($request->filled('sort')) {
-    switch ($request->sort) {
-        case 'terbaru':
-            $query->orderBy('created_at', 'desc');
-            break;
+        // Tambahkan skor CBF ke query: hanya 2 fitur: rating dan visit_count
+        $query->selectRaw('*, (0.6 * rating + 0.4 * LOG(1 + visit_count)) as cbf_score');
 
-        case 'recommended':
-            $query->where('is_recommended', true);
-            break;
-
-        case 'a-z':
+        // Sorting: default pakai CBF
+        $sort = $request->input('sort');
+        if ($sort === 'a-z') {
             $query->orderBy('title', 'asc');
-            break;
-    }
-}
+        } else {
+            // default atau sort=recommended
+            $query->orderByDesc('cbf_score');
+        }
 
+        // Paginate hasil
+        $wisatas = $query->paginate(8)->withQueryString();
 
-
-
-        $wisatas = $query->paginate(8);
-
-        return view('frontend.explore.index', compact('backgrounds', 'wisatas','jenisWisatas'));
+        return view('frontend.explore.index', compact('backgrounds', 'wisatas', 'jenisWisatas'));
     }
 
     public function show($slug)
     {
         $wisata = Wisata::with(['jenisWisata', 'images'])->where('slug', $slug)->firstOrFail();
+
+        // CBF: tingkatkan visit count (tanpa login)
+        $wisata->incrementVisitCount();
+
         return view('frontend.explore.single', compact('wisata'));
     }
 }

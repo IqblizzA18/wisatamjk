@@ -119,24 +119,21 @@
         <div class="container">
             <div class="row align-items-center justify-content-between  mb-5">
                 <div class="col-lg-6" data-aos="fade-up">
-                    <h2 class="heading mb-3">Rekomendasi wisata hari yang dapat dikungjungi</h2>
-                    <p>Temukan destinasi wisata yang dapat Anda kunjungi hari ini di Kota Mojokerto, berdasarkan
-                        tren terkini dan rekomendasi terbaik untuk pengalaman yang tak terlupakan.</p>
+                    <h2 class="heading mb-3">Rekomendasi Wisata yang Sering Dikunjungi</h2>
+                    <p>Temukan destinasi wisata yang sedang populer berdasarkan data kunjungan pengunjung lainnya.
+                        Rekomendasi ini dipilih secara otomatis berdasarkan minat umum.</p>
                 </div>
                 <div class="col-lg-4 text-md-end" data-aos="fade-up" data-aos-delay="100">
                     <div id="destination-controls">
                         <span class="prev me-3" data-controls="prev">
                             <span class="icon-chevron-left"></span>
-
                         </span>
                         <span class="next" data-controls="next">
                             <span class="icon-chevron-right"></span>
-
                         </span>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="destination-slider-wrap">
@@ -154,14 +151,16 @@
                         <div class="mt-4">
                             <h3><a href="{{ route('explore.show', $wisata->slug) }}">{{ $wisata->title }}</a></h3>
                             <span
-                                class="meta">{{ \Illuminate\Support\Str::limit($wisata->short_description, 50) }}</span>
+                                class="meta">{{ \Illuminate\Support\Str::limit($wisata->short_description, 50) }}</span><br>
+                            <small class="text-muted"><i class="fas fa-eye"></i> {{ $wisata->visit_count }}
+                                kunjungan</small>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-
     </div>
+
 
     <div class="section">
         <div class="container">
@@ -177,42 +176,6 @@
                     <p class="my-4" data-aos="fade-up" data-aos-delay="200"><a href="{{ route('feedback') }}"
                             class="btn btn-warning">Ulasan</a></p>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section bg-light">
-        <h2 class="heading mb-5 text-center">Testimoni pengguna</h2>
-
-        <div class="text-center mb-5">
-            <div id="prevnext-testimonial">
-                <span class="prev me-3" data-controls="prev">
-                    <span class="icon-chevron-left"></span>
-
-                </span>
-                <span class="next" data-controls="next">
-                    <span class="icon-chevron-right"></span>
-
-                </span>
-            </div>
-        </div>
-
-        <div class="wide-slider-testimonial-wrap">
-            <div class="wide-slider-testimonial">
-                @foreach ($testimonials as $testimonial)
-                    <div class="item">
-                        <blockquote class="block-testimonial">
-                            <div class="author">
-                                {{-- <img src="{{ asset('FE_wisata/images/person_1.jpg') }}" alt="Free template by TemplateUX"> --}}
-                                <h3>{{ $testimonial->name }}</h3>
-                                <p class="position mb-5">{{ $testimonial->city }}</p>
-                            </div>
-                            <p>
-                            <div class="quote">&ldquo;</div>
-                            &ldquo;{{ $testimonial->message }}&rdquo;</p>
-                        </blockquote>
-                    </div>
-                @endforeach
             </div>
         </div>
     </div>

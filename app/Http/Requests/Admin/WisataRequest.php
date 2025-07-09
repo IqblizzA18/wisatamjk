@@ -12,14 +12,6 @@ class WisataRequest extends FormRequest
         return true;
     }
 
-     public function prepareForValidation()
-{
-    $this->merge([
-        'is_recommended' => $this->has('is_recommended'), // True kalau checkbox ada di request
-    ]);
-}
-
-
     public function rules(): array
     {
         $wisataId = $this->route('wisata')?->id ?? null;
@@ -38,9 +30,8 @@ class WisataRequest extends FormRequest
             'paragraph_5' => 'nullable|string',
             'google_maps_url' => 'nullable|url',
             'opening_hours' => 'nullable|string',
-            'rating' => 'required|numeric|min:0|max:5',
-            'jenis_wisata_id' => 'required|exists:jenis_wisatas,id',
-            'is_recommended' => 'nullable|boolean',
+            'rating' => 'required|numeric|min:0|max:5', // ✅ digunakan untuk CBF
+            'jenis_wisata_id' => 'required|exists:jenis_wisatas,id', // ✅ digunakan untuk CBF
             'images.*' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }

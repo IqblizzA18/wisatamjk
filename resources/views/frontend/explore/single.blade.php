@@ -70,20 +70,17 @@
                 <div class="col-md-4 sidebar">
                     <div class="sidebar-box mb-4 p-4 bg-light rounded-4 shadow-sm border-start border-4 border-warning">
                         <h5 class="fw-bold mb-3">
-                            <i class="bi bi-info-circle-fill text-warning me-2"></i>Informasi Wisata
+                            <i class="me-2"></i>Informasi Wisata
                         </h5>
                         <hr class="my-2">
                         <ul class="list-unstyled mb-0">
                             <li class="mb-2">
-                                <i class="bi bi-clock-fill text-secondary me-2"></i>
                                 <strong>Jam Buka:</strong> {{ $wisata->opening_hours }}
                             </li>
                             <li class="mb-2">
-                                <i class="bi bi-map-fill text-secondary me-2"></i>
                                 <strong>Jenis Wisata:</strong> {{ $wisata->jenisWisata->name }}
                             </li>
                             <li class="mb-2">
-                                <i class="bi bi-star-fill text-warning me-2"></i>
                                 <strong>Rating:</strong>
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $wisata->rating)
@@ -94,10 +91,14 @@
                             </li>
 
                             <li class="mb-2">
-                                <i class="bi bi-calendar-event-fill text-secondary me-2"></i>
                                 <strong>Tanggal Upload:</strong>
                                 {{ \Carbon\Carbon::parse($wisata->uploaded_at)->translatedFormat('d F Y') }}
                             </li>
+                            <li class="mb-2">
+                                <strong>Dikunjungi:</strong> {{ $wisata->visit_count }} kali
+                            </li>
+
+
                         </ul>
                     </div>
 

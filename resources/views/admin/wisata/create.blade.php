@@ -77,11 +77,11 @@
                             value="{{ old('rating', 0) }}" min="0" max="5" step="0.1" required>
                     </div>
 
-                    <div class="form-check mb-3">
+                    {{-- <div class="form-check mb-3">
                         <input type="checkbox" id="is_recommended" name="is_recommended" class="form-check-input"
                             {{ old('is_recommended') ? 'checked' : '' }}>
                         <label for="is_recommended" class="form-check-label">Rekomendasi?</label>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="images" class="form-label">Upload Gambar</label>

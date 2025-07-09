@@ -23,7 +23,7 @@
                                 <th>Judul</th>
                                 <th>Jenis</th>
                                 <th>Rating</th>
-                                <th>Rekomendasi</th>
+                                {{-- <th>Rekomendasi</th> --}}
                                 <th>Gambar</th>
                                 <th class="text-center">Aksi</th>
                             </tr>
@@ -35,11 +35,11 @@
                                     <td>{{ $wisata->title }}</td>
                                     <td>{{ $wisata->jenisWisata->name ?? '-' }}</td>
                                     <td>{{ $wisata->rating }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <span class="badge bg-{{ $wisata->is_recommended ? 'success' : 'secondary' }}">
                                             {{ $wisata->is_recommended ? 'Ya' : 'Tidak' }}
                                         </span>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         @foreach ($wisata->images as $image)
                                             <img src="{{ asset('storage/' . $image->image_path) }}" style="width: 50px;"

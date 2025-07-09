@@ -12,8 +12,9 @@
         content="Portal wisata resmi Kota Mojokerto. Temukan tempat wisata, kuliner, dan budaya terbaik di sini.">
 
     <meta name="keywords" content="wisata, Mojokerto, tempat wisata, liburan, budaya Mojokerto">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Brygada+1918:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;700&display=swap"
         rel="stylesheet">
@@ -156,15 +157,10 @@
             </div>
         </div>
 
-
-        {{-- <script src="{{ asset('FE_wisata/js/bootstrap.bundle.min.js') }}"></script> --}}
         <script src="{{ asset('js/tiny-slider.js') }}"></script>
         <script src="{{ asset('js/aos.js') }}"></script>
         <script src="{{ asset('js/navbar.js') }}"></script>
-        {{-- <script src="{{ asset('FE_wisata/js/counter.js') }}"></script> --}}
         <script src="{{ asset('js/rellax.js') }}"></script>
-        {{-- <script src="{{ asset('FE_wisata/js/flatpickr.js') }}"></script> --}}
-        {{-- <script src="{{ asset('FE_wisata/js/glightbox.min.js') }}"></script> --}}
         <script src="{{ asset('js/custom.js') }}"></script>
         <script src="{{ asset('js/sitenav.js') }}"></script>
         <!-- Sebelum </body> -->

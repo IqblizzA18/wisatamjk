@@ -51,7 +51,7 @@
                 <div class="border-bottom mb-3 pb-2 d-flex align-items-center">
                     <h4 class="m-0 fw-bold text-success">Wisata Direkomendasikan</h4>
                 </div>
-                @forelse ($wisataRekomendasi as $wisata)
+                @forelse ($wisataRekomendasiPaginated as $wisata)
                     <div class="card mb-3 border-0 shadow-sm">
                         <div class="row g-0 align-items-center">
                             <div class="col-md-4">
@@ -78,7 +78,7 @@
                     <div class="alert alert-warning">Belum ada wisata yang direkomendasikan.</div>
                 @endforelse
                 <div class="d-flex justify-content-center mt-3">
-                    {{ $wisataRekomendasi->appends(request()->except('page'))->links() }}
+                    {{ $wisataRekomendasiPaginated->appends(request()->except('page'))->links() }}
                 </div>
             </div>
 
@@ -86,7 +86,7 @@
                 <div class="border-bottom mb-3 pb-2 d-flex align-items-center">
                     <h4 class="m-0 fw-bold text-secondary">Wisata Tidak Direkomendasikan</h4>
                 </div>
-                @forelse ($wisataNonRekomendasi as $wisata)
+                @forelse ($wisataNonRekomendasiPaginated as $wisata)
                     <div class="card mb-3 border-0 shadow-sm">
                         <div class="row g-0 align-items-center">
                             <div class="col-md-4">
@@ -113,7 +113,7 @@
                     <div class="alert alert-secondary">Belum ada wisata tidak direkomendasikan.</div>
                 @endforelse
                 <div class="d-flex justify-content-center mt-3">
-                    {{ $wisataNonRekomendasi->appends(request()->except('page'))->links() }}
+                    {{ $wisataNonRekomendasiPaginated->appends(request()->except('page'))->links() }}
                 </div>
             </div>
         </div>

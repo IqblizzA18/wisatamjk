@@ -6,7 +6,6 @@ use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ExploreController;
 use App\Http\Controllers\Frontend\FeedbackController;
 use App\Http\Controllers\Admin\BackgroundController;
-use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\Admin\JenisWisataController;
 
@@ -23,7 +22,6 @@ Route::group(['middleware' => ['auth', 'isAdmin'], 'prefix' => 'admin', 'as' => 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::resource('backgrounds', \App\Http\Controllers\Admin\BackgroundController::class)->except('show');
-    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class)->except('show');
     Route::resource('jenis', \App\Http\Controllers\Admin\JenisWisataController::class)->except('show');
     Route::resource('wisata', \App\Http\Controllers\Admin\WisataController::class)
         ->parameters(['wisata' => 'wisata'])

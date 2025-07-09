@@ -83,11 +83,11 @@
                             value="{{ old('rating', $wisata->rating) }}" min="0" max="5" step="0.1">
                     </div>
 
-                    <div class="form-check mb-3">
+                    {{-- <div class="form-check mb-3">
                         <input type="checkbox" id="is_recommended" name="is_recommended" class="form-check-input"
                             {{ old('is_recommended', $wisata->is_recommended) ? 'checked' : '' }}>
                         <label for="is_recommended" class="form-check-label">Rekomendasi?</label>
-                    </div>
+                    </div> --}}
 
                     <button type="submit" class="btn btn-success px-4">
                         <i class="fas fa-save me-1"></i> Simpan Perubahan
