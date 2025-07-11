@@ -126,10 +126,10 @@
                 <div class="col-lg-4 text-md-end" data-aos="fade-up" data-aos-delay="100">
                     <div id="destination-controls">
                         <span class="prev me-3" data-controls="prev">
-                            <span class="icon-chevron-left"></span>
+                            <span class="bi bi-chevron-left"></span>
                         </span>
                         <span class="next" data-controls="next">
-                            <span class="icon-chevron-right"></span>
+                            <span class="bi bi-chevron-right"></span>
                         </span>
                     </div>
                 </div>

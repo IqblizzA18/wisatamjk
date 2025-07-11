@@ -569,55 +569,61 @@ textarea {
     left: 7px; }
 
 .custom-accordion .accordion-item {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   position: relative;
-  border-radius: 0px;
-  overflow: hidden; }
-  .custom-accordion .accordion-item .btn-link {
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-    text-decoration: none;
-    text-align: left;
-    color: #000;
-    background: transparent;
-    border: none;
-    padding-left: 40px;
-    border-radius: 0;
-    position: relative;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important; }
-    .custom-accordion .accordion-item .btn-link:before {
-      font-family: 'icomoon';
-      content: "\f067";
-      position: absolute;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      transform: translateY(-50%);
-      left: 15px; }
-    .custom-accordion .accordion-item .btn-link[aria-expanded="true"] {
-      font-weight: 700;
-      color: #fff !important;
-      background: #f17945; }
-      .custom-accordion .accordion-item .btn-link[aria-expanded="true"]:before {
-        font-family: 'icomoon';
-        content: "\f068";
-        position: absolute;
-        color: #fff;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        left: 15px; }
-  .custom-accordion .accordion-item.active {
-    z-index: 2; }
-    .custom-accordion .accordion-item.active .btn-link {
-      color: #000;
-      -webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
-      box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1); }
-  .custom-accordion .accordion-item .accordion-body {
-    padding: 20px 20px 20px 20px; }
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.custom-accordion .accordion-item .btn-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 20px;
+  text-decoration: none;
+  text-align: left;
+  color: #585858;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none !important;
+  font-weight: 400;
+  transition: background 0.3s, color 0.3s;
+}
+
+.custom-accordion .accordion-item .btn-link i.bi {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+/* Saat tombol terbuka */
+.custom-accordion .accordion-item .btn-link[aria-expanded="true"] {
+  font-weight: 700;
+  color: #fff !important;
+  background: #f17945;
+}
+
+/* Rotasi ikon saat terbuka */
+.custom-accordion .accordion-item .btn-link[aria-expanded="true"] i.bi {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+.custom-accordion .accordion-item.active {
+  z-index: 2;
+}
+
+.custom-accordion .accordion-item.active .btn-link {
+  color: #000;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.custom-accordion .accordion-item .accordion-body {
+  padding: 20px;
+}
+
 
 .media-entry > a {
   display: block;
@@ -786,6 +792,7 @@ textarea {
 
 .text-content{
   font-size: 50px;
+  color: #343661;
   font-weight: bolder;
 }
 /* Kontrol navigasi kiri dan kanan */

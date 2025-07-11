@@ -189,13 +189,12 @@
                                 <button class="btn btn-link" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     Kenapa Harus ke Mojokerto?
+                                    <i class="bi bi-chevron-down"></i>
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordion_1">
+                            <div id="collapseOne" class="collapse show" data-bs-parent="#accordion_1">
                                 <div class="accordion-body">
-                                    Mojokerto bukan hanya kota sejarah—ia adalah pintu gerbang ke kejayaan Majapahit. Setiap
-                                    sudutnya menawarkan pengalaman autentik dan memikat.
+                                    Mojokerto bukan hanya kota sejarah—ia adalah pintu gerbang ke kejayaan Majapahit.
                                 </div>
                             </div>
                         </div>
@@ -205,13 +204,13 @@
                                 <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     Bingung Mulai dari Mana?
+                                    <i class="bi bi-chevron-down"></i>
                                 </button>
                             </h2>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordion_1">
+                            <div id="collapseTwo" class="collapse" data-bs-parent="#accordion_1">
                                 <div class="accordion-body">
-                                    Tenang, kamu bisa mulai dari situs Majapahit, lalu lanjut ke air terjun, dan akhiri
-                                    dengan kuliner khas Mojokerto. Kami bantu rancang rutenya.
+                                    Mulai dari situs Majapahit, lanjut ke air terjun, dan akhiri dengan kuliner khas
+                                    Mojokerto.
                                 </div>
                             </div>
                         </div>
@@ -221,20 +220,18 @@
                                 <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                     Rekomendasi Sesuai Selera
+                                    <i class="bi bi-chevron-down"></i>
                                 </button>
                             </h2>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordion_1">
+                            <div id="collapseThree" class="collapse" data-bs-parent="#accordion_1">
                                 <div class="accordion-body">
                                     Sistem pintar kami menyarankan destinasi berdasarkan minatmu. Alam? Sejarah? Kuliner?
-                                    Semua bisa kamu sesuaikan sendiri.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Accordion -->
                 <!-- Accordion Kanan -->
                 <div class="col-lg-6 mt-lg-0">
                     <div class="custom-accordion" id="accordion_2">
@@ -243,13 +240,13 @@
                                 <button class="btn btn-link" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                     Butuh Teman Jelajah?
+                                    <i class="bi bi-chevron-down"></i>
                                 </button>
                             </h2>
-                            <div id="collapseFour" class="collapse show" aria-labelledby="headingFour"
-                                data-bs-parent="#accordion_2">
+                            <div id="collapseFour" class="collapse show" data-bs-parent="#accordion_2">
                                 <div class="accordion-body">
                                     Nikmati pengalaman liburan bareng komunitas lokal atau traveler lain yang punya minat
-                                    sama. Seru dan lebih hemat!
+                                    sama.
                                 </div>
                             </div>
                         </div>
@@ -259,13 +256,13 @@
                                 <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                     Siap Liburan? Yuk Mulai!
+                                    <i class="bi bi-chevron-down"></i>
                                 </button>
                             </h2>
-                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordion_2">
+                            <div id="collapseFive" class="collapse" data-bs-parent="#accordion_2">
                                 <div class="accordion-body">
-                                    Cukup pilih tanggal dan minatmu, kami bantu atur semuanya. Petualanganmu di Mojokerto
-                                    tinggal satu klik lagi!
+                                    Cukup pilih tanggal dan minatmu, kami bantu atur semuanya. Petualanganmu tinggal satu
+                                    klik lagi!
                                 </div>
                             </div>
                         </div>
@@ -275,13 +272,13 @@
                                 <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                     Promo & Diskon Spesial
+                                    <i class="bi bi-chevron-down"></i>
                                 </button>
                             </h2>
-                            <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordion_2">
+                            <div id="collapseSix" class="collapse" data-bs-parent="#accordion_2">
                                 <div class="accordion-body">
                                     Dapatkan penawaran menarik untuk paket wisata Mojokerto. Terbatas hanya untuk pendaftar
-                                    awal—buruan daftar!
+                                    awal!
                                 </div>
                             </div>
                         </div>
