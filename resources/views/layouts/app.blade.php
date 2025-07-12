@@ -19,7 +19,8 @@
     <!-- AdminLTE -->
     <link href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" rel="stylesheet" />
 
-    @stack('styles')
+    @stack('scripts')
+    @stack('script-alt')
 </head>
 
 <body class="hold-transition sidebar-mini">
