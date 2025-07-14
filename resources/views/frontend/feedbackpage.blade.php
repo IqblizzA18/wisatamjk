@@ -84,7 +84,7 @@
             const form = e.target;
             const data = new FormData(form);
             const url =
-                "https://script.google.com/macros/s/AKfycbyCjFfXH5aty0r7cKw9qJT5Mt5ua3JtAtUz7NMGusjPkjP1RBzgT26u5KGwq9Pf0WoP/exec";
+                "https://script.google.com/macros/s/AKfycbxGoarACzUBizpDMYF7ZTRIy3_8x93whEDQrKN6Z_Q_QzbVvInskz5CWF78gfqw-Mkqxw/exec";
 
             try {
                 await fetch(url, {

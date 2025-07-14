@@ -173,7 +173,7 @@
                     <p>Setiap perjalanan menyimpan cerita. Melalui ulasan yang Anda berikan, kami dapat terus meningkatkan
                         kualitas rekomendasi dan membantu wisatawan lain menemukan destinasi terbaik. Suarakan pendapat Anda
                         dan jadikan pengalaman Anda berarti bagi banyak orang.</p>
-                    <p class="my-4" data-aos="fade-up" data-aos-delay="200"><a href="{{ route('feedback') }}"
+                    <p class="my-4" data-aos="fade-up" data-aos-delay="100"><a href="{{ route('feedback') }}"
                             class="btn btn-warning">Ulasan</a></p>
                 </div>
             </div>

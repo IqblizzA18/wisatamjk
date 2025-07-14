@@ -2,11 +2,13 @@
   'use strict';
 
   // 1. AOS (Animate On Scroll)
+  window.addEventListener('load', function () {
   AOS.init({
     duration: 800,
     easing: 'slide',
     once: true
   });
+});
 
   // 2. Parallax effect using Rellax
   var rellax = new Rellax('.rellax');

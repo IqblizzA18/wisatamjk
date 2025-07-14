@@ -13,14 +13,15 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap 4 & AdminLTE CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- AdminLTE -->
     <link href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css" rel="stylesheet" />
 
-    @stack('scripts')
-    @stack('script-alt')
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+
+    @stack('styles')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -64,14 +65,15 @@
                     style="object-fit: contain; opacity: .9;" />
                 <span class="brand-text font-weight-light">Visit Mojokerto</span>
             </a>
-
             @include('layouts.navigation')
         </aside>
 
-        <!-- Content Wrapper -->
+        <!-- Content -->
         <div class="content-wrapper pt-4">
             <section class="content">
                 <div class="container-fluid">
+
+                    {{-- Alert --}}
                     @if ($errors->any())
                         <div class="alert alert-danger alert-dismissible fade show">
                             <ul class="mb-0">
@@ -90,6 +92,7 @@
                         </div>
                     @endif
 
+                    {{-- Main content --}}
                     @yield('content')
                 </div>
             </section>
@@ -102,11 +105,17 @@
         </footer>
     </div>
 
-    <!-- Scripts -->
+    <!-- JavaScript Dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Custom Vite Script -->
+    @vite(['resources/js/custom.js'])
+
     @stack('scripts')
+    @stack('script-alt')
 </body>
 
 </html>
